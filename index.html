@@ -1,16 +1,28 @@
 <!DOCTYPE html>
-<html lang="en" ng-app>
+<html lang="en" ng-app="miTienda">
 <head>
 	<meta charset="UTF-8">
 	<title>Angular</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
 </head>
 <body>
-	<h1>Expreciones angular</h1>
-	<ul>
-		<li>Apio {{50|currency}}</li>
-		<li>Poro {{40 | currency:"S/."}}</li>
-		<li>Col {{50+10 | currency:"E. "}} importado de {{ 'INdia' | uppercase}}</li>
-	</ul>
+	<h1>TIENDA DE VERDURAS</h1>
+	<div ng-controller="ctlrProducto">
+		<h2>promocion de mangos!!</h2>
+		<h3>S/.2.50 cada uno</h3>
+		<label>Cantidad de Mangos:</label>
+		<input type="text" ng-model="cantidad">
+		<br>
+		Precio Total: {{cantidad*precio | currency:'S/. '}}
+	</div>
+
+	<script>
+		var app = angular.module('miTienda', [])
+
+		app.controller('ctlrProducto', ['$scope', function($scope){
+			$scope.cantidad=0
+			$scope.precio=2.50
+		}])
+	</script>
 </body>
 </html>
