@@ -1,27 +1,32 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="miTienda">
+<html lang="en" ng-app="circunferencia">
 <head>
 	<meta charset="UTF-8">
 	<title>Angular</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
 </head>
 <body>
-	<h1>TIENDA DE VERDURAS</h1>
-	<div ng-controller="ctlrProducto">
-		<h2>promocion de mangos!!</h2>
-		<h3>S/.2.50 cada uno</h3>
-		<label>Cantidad de Mangos:</label>
-		<input type="text" ng-model="cantidad">
-		<br>
-		Precio Total: {{cantidad*precio | currency:'S/. '}}
+	<div ng-controller="ctlrCircunferencia">
+		<h1>Calculo de la circunferencia</h1>
+		
+		<label>Diametro:</label>
+		<input type="text" ng-model="diametro">
+		<button ng-click="CalcularCircunferencia()">Calcular</button>
+		<hr>
+		{{calCircunferencia}}
 	</div>
 
 	<script>
-		var app = angular.module('miTienda', [])
+		var app = angular.module('circunferencia', [])
 
-		app.controller('ctlrProducto', ['$scope', function($scope){
-			$scope.cantidad=0
-			$scope.precio=2.50
+		app.controller('ctlrCircunferencia', ['$scope', function($scope){
+
+			var pi = 3.14
+
+			$scope.CalcularCircunferencia= function(){
+				$scope.calCircunferencia=$scope.diametro*pi
+			}
+			
 		}])
 	</script>
 </body>
