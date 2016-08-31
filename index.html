@@ -1,32 +1,28 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="circunferencia">
+<html lang="en" ng-app="Nombres">
 <head>
 	<meta charset="UTF-8">
 	<title>Angular</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
 </head>
 <body>
-	<div ng-controller="ctlrCircunferencia">
-		<h1>Calculo de la circunferencia</h1>
-		
-		<label>Diametro:</label>
-		<input type="text" ng-model="diametro">
-		<button ng-click="CalcularCircunferencia()">Calcular</button>
-		<hr>
-		{{calCircunferencia}}
+	<div ng-controller="ctrlNombres">
+		<h1>Nombres</h1>
+		<ul ng-repeat="name in SimplesNames">
+			<li>{{name}}</li>
+		</ul>
+
+		<ul ng-repeat="actor in actors">
+			<li>{{actor.firstname}}&nbsp;{{actor.lastname}}</li>
+		</ul>
 	</div>
 
 	<script>
-		var app = angular.module('circunferencia', [])
+		var app = angular.module('Nombres', [])
 
-		app.controller('ctlrCircunferencia', ['$scope', function($scope){
-
-			var pi = 3.14
-
-			$scope.CalcularCircunferencia= function(){
-				$scope.calCircunferencia=$scope.diametro*pi
-			}
-			
+		app.controller('ctrlNombres', ['$scope', function($scope){
+			$scope.SimplesNames = ["Oscar", "Rosa", "Romel", "Solano"]
+			$scope.actors = [{firstname:"Toledo", lastname:"Del Carmen"}, {firstname:"Marrufo", lastname:"Cruz"}, {firstname:"Roncal", lastname:"Malcal"}]
 		}])
 	</script>
 </body>
