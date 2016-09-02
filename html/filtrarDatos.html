@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="Agenda">
+<head>
+	<meta charset="UTF-8">
+	<title>Angular</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+</head>
+<body>
+	<div ng-controller="CtrlAgenda">
+		<input ng-model="nombreUser" type="seach">
+		<p ng-repeat="item in directorio | filter: nombreUser">{{item.contact}}&nbsp;{{item.phone}}</p>
+	</div>
+
+	<script>
+		var app = angular.module('Agenda', [])
+
+		app.controller('CtrlAgenda', ['$scope', function($scope){
+			$scope.directorio = [
+			{contact:"Oscar", phone:"987786789"},
+			{contact:"Rosa", phone:"987786790"},
+			{contact:"Juan", phone:"987786719"},
+			{contact:"Manuel", phone:"987786589"},
+			{contact:"Carlos", phone:"984786789"},
+			{contact:"Javier", phone:"985786789"},
+			{contact:"Sheen", phone:"986686789"},
+			{contact:"Anali", phone:"988886789"},
+			{contact:"Deisy", phone:"989986789"},
+			{contact:"Maria", phone:"982286789"}
+			]
+		}])
+	</script>
+</body>
+</html>

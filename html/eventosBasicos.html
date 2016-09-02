@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="eventosB">
+<head>
+	<meta charset="UTF-8">
+	<title>Eventos básicos</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+</head>
+<body>
+	<div ng-controller="ctrlEventosB">
+		<button ng-click="clickSimple()">Click</button>
+		<button ng-dblclick="dblClick()">Click</button>
+		<hr>
+		<img src="../img/ejemplo1.png" ng-mouseleave="saleImagen()" ng-mouseenter="entraImagen()">
+		{{evento}}
+	</div>
+	<script>
+		var app = angular.module('eventosB', [])
+
+		app.controller('ctrlEventosB', ['$scope', function($scope){
+			$scope.clickSimple = function(){
+				$scope.evento = "click"
+			}
+
+			$scope.dblClick = function(){
+				$scope.evento = "doble click"
+			}
+
+			$scope.saleImagen = function(){
+				$scope.evento = "El mouse salio de la imagen"
+			}
+			$scope.entraImagen = function(){
+				$scope.evento = "El mouse entro en la imagen"
+			}
+		}])
+	</script>
+</body>
+</html>
